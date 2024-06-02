@@ -1,0 +1,67 @@
+.login-form-container {
+  margin-top: 50%;
+  margin-bottom: 50%;
+  width: 40%;
+  height: 400px; /* Ajout d'une hauteur fixe de 500 pixels */
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #C9AB81;
+  border-radius: 5px;
+}
+
+.login-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-container label {
+  margin-bottom: 5px;
+  font-weight: bold; /* Ajouter la propriété font-weight ici également */
+}
+
+.login-form-container input {
+  padding: 8px;
+  margin-bottom: 15px;
+  background-color: #2d3031;
+  border: 1px solid #C9AB81;
+  border-radius: 5px;
+  margin-bottom: 5%;
+  margin-top: 5%;
+
+  width: 100%; /* Set width to 100% */
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.links {
+  margin-top: 15px;
+}
+
+.links a {
+  margin-right: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #2d3031;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
