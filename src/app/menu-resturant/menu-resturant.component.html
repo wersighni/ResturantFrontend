@@ -1,5 +1,13 @@
 <!-- data-table.component.html -->
 <div style="width: 70%; margin: 0 auto; margin-top: 5%; margin-bottom: 10%;">
+    <div style="display: flex;">
+        <button  style="font-weight: bold;">
+            
+            Add a Menu
+            <mat-icon >add</mat-icon>
+    
+        </button>
+      </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="color: rgb(225, 221, 221); background-color: rgb(114, 112, 112);">
         <!-- Define columns -->
         <ng-container matColumnDef="name">
@@ -19,14 +27,14 @@
                     <mat-icon style="color: rgb(251, 202, 142)">more_vert</mat-icon>
                 </span>
                 <mat-menu #menu="matMenu" style="background-color: rgb(114, 112, 112);">
-                    <button mat-menu-item (click)="editElement(element)" >
+                    <span mat-menu-item (click)="editElement(element)" >
                         <mat-icon>edit</mat-icon>
                         <span>Edit</span>
-                    </button>
-                    <button mat-menu-item (click)="deleteElement(element)">
+                    </span>
+                    <span mat-menu-item (click)="deleteElement(element)">
                         <mat-icon>delete</mat-icon>
                         <span>Delete</span>
-                    </button>
+                    </span>
                   </mat-menu>
                
             </td>

@@ -19,7 +19,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { AddDishComponent } from './add-dish/add-dish.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { QRCodeModule } from 'angularx-qrcode';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,17 +35,21 @@ import { MatMenuModule } from '@angular/material/menu';
     DetailsComponent,
     LoginComponent,
     MenuResturantComponent,
-    DishComponent
+    DishComponent,
+    AddDishComponent
   ],
   imports: [
     BrowserModule,
+    QRCodeModule,
     AppRoutingModule,
     MatIconModule,
     FormsModule,
     HttpClientModule,
     MatTableModule ,
     MatMenuModule,
+    MatDialogModule,
     ReactiveFormsModule,
+    MatSlideToggleModule,
 
     JwtModule.forRoot({
       config: {

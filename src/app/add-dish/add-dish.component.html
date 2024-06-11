@@ -1,0 +1,60 @@
+<div class="login-form-container">
+  <form  [formGroup]="dishForm">
+    <div>
+      <div >
+        <label for="fileInput" style="cursor: pointer;float: right;">
+          <mat-icon (click)="openFileInput()">add_a_photo</mat-icon>
+        </label>
+        <input type="file" id="fileInput" style="display: none;" accept="image/*" 
+        (change)="onFileSelected($event)" />
+      </div>
+
+    </div>
+  
+    <h3 style="font-weight: bold; text-align: center;">Add a Dish</h3>
+
+ 
+    <div style="margin: 0auto; margin-top: 2%;margin-bottom: 5%; margin-left: 40%;">
+      
+      <img  [src]="imageUrl" *ngIf="imageUrl" alt="Selected Image" style="width: 30%;margin: 0auto; ">
+    </div>
+    <div>
+      <input type="text" id="name" name="name"  formControlName="name"  placeholder="Name">
+      <div *ngIf="dishForm.get('name')?.hasError('required') && (dishForm.get('name')?.dirty || dishForm.get('name')?.touched)">
+        <div *ngIf="dishForm.get('name')?.errors?.['required']">Name is required.</div>
+      </div>
+    </div>
+    <div>
+      <select formControlName="category"  placeholder="Category" (change)="onCategorySelected($event)">
+        <option value="" disabled selected>Select a Category</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+      </select>
+      <div *ngIf="dishForm.get('category')?.hasError('required') && (dishForm.get('category')?.dirty || dishForm.get('category')?.touched)">
+        <div *ngIf="dishForm.get('category')?.errors?.['required']">Category is required.</div>
+      </div>
+      <!-- Validation pour la catégorie -->
+    </div>
+    <div>
+      <textarea id="description" name="description" formControlName="description" placeholder="Description"></textarea>
+      <div *ngIf="dishForm.get('description')?.invalid && (dishForm.get('description')?.dirty || dishForm.get('description')?.touched)">
+        <div *ngIf="dishForm.get('description')?.errors?.['required']">Description is required.</div>
+      </div>
+    </div>
+    <div>
+      <input type="number" id="price" name="price" formControlName="price" placeholder="Price">
+      <div *ngIf="dishForm.get('price')?.invalid && (dishForm.get('price')?.dirty || dishForm.get('price')?.touched)">
+        <div *ngIf="dishForm.get('price')?.errors?.['required']">Price is required.</div>
+      </div>
+    </div>
+
+     
+    
+<div style="display: flex;justify-content: space-evenly;">
+  <button type="reset"  (click)="closeModal()">Cancel</button>
+    <button type="submit"  (click)="addDish()">Add Dish</button>
+
+
+</div>  </form>
+
+</div>
+

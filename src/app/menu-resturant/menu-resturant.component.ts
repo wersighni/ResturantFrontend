@@ -13,10 +13,10 @@ export class MenuResturantComponent {
   constructor(private menuService: MenuService) { }
 
   ngOnInit(): void {
-    this.menuService.getMenuItems().subscribe(data => {
-      console.log(data);
-      this.dataSource = data; // Assign fetched data to the dataSource
-    });
+    // this.menuService.getMenuItems().subscribe(data => {
+    //   console.log(data);
+    //   this.dataSource = data; // Assign fetched data to the dataSource
+    // });
   }
 
   editElement(element: Menu) {

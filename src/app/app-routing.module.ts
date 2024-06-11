@@ -20,7 +20,7 @@ const routes: Routes = [{
   path:"menu",component: MenuComponent
 }
 ,{
-  path:"gmenu",component: MenuResturantComponent
+  path:"tables",component: MenuResturantComponent
 },
 {
   path:"plat",component: DishComponent

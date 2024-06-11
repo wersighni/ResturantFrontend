@@ -26,7 +26,7 @@ export class LoginComponent {
       .login(this.username, this.password)
       .then((success) => {
         if (success) {
-          this.router.navigateByUrl('/');
+          this.router.navigate(['/']);
 
         } 
       })

@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container" style="color: white;">
     <div class="row">
-        <img src={{product.image}} >
-        <div>
-            <h4>{{product.productName}}</h4>
-            <p>{{product.productDescription}}</p>
-            <h6>Allergene:</h6>
-            <div *ngFor="let line of product.detailedDescription.split('\n')">
-                {{ line }} <br>
-            </div>
-            <a (click)="addToCart()" class="btn btn-primary">Add to cart</a>
-        </div>
+      <img [src]="url" alt="Dish Image" />
+      <div>
+        <h4>Dish name: {{ dish?.name }}</h4>
+        <p>Dish description: {{ dish?.description }}</p>
+        <p>Dish category: {{ dish?.category.name }}</p>
+        <p>Dish price: {{ dish?.price }} $</p>
+
+        <a (click)="addToCart()" class="btn btn-primary">Add to cart</a>
+      </div>
     </div>
-</div>
+  </div>
+  
