@@ -1,0 +1,28 @@
+
+<div class="login-form-container">
+    <h5 style="font-weight: bold; text-align: center;">Add Table</h5>
+    <!-- <button type="button" class="close" (click)="closeModal()">
+      <span>&times;</span>
+    </button> -->
+  </div>
+  <div class="login-form-container ">
+    <form (ngSubmit)="onSubmit()">
+     
+      <div class="form-group">
+        <label for="position">  table Number </label>
+        <input type="text" id="tableNumber" class="form-control" [(ngModel)]="table.tableNumber" name="tableNumber" required >
+      </div>
+      <div class="form-group">
+        <label for="capacity">capacity</label>
+        <input type="number" id="capacity" class="form-control" [(ngModel)]="table.capacity" name="capacity" required >
+      </div>
+      <div style="display: flex;justify-content: space-between;">
+  
+        <button type="reset" class="btn btn-primary" (click)="closeModal()">Cancel</button>
+  
+      <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+  
+    </form>
+  </div>
+  

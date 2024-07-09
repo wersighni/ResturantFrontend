@@ -44,7 +44,9 @@ export class AuthService {
   changePassword(username: string, currentPassword: string, newPassword: string): Observable<any> {
     return this.http.post(this.urlBack + '/keycloak/auth/changePassword', { username, currentPassword, newPassword });
   }
-
+  register(user:User): Observable<any> {
+    return this.http.post<Observable<any>>(this.urlBack + '/keycloak/auth/register',  user );
+  }
   login(username: string, password: string): Promise<boolean> {
     return this.http.post(this.loginUrl, { username, password }).toPromise().then((response: any) => {
       const accessToken = response.access_token;
@@ -58,6 +60,11 @@ export class AuthService {
       const usernameFromToken = decodedToken.preferred_username;
       const userIdFromToken = decodedToken.sub;
       const roleFromToken = decodedToken.realm_access.roles;
+      
+       
+      const firstname=  decodedToken.given_name;
+      const lastname=  decodedToken.family_name;
+      localStorage.setItem('fullname', firstname+ " "+lastname);
 
       localStorage.setItem('token', accessToken);
       localStorage.setItem('userId', userIdFromToken);

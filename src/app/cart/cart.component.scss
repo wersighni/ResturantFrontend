@@ -4,8 +4,9 @@ h3 {
 }
 .container{
     justify-content: center;
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 5px;
+    color: white;
     padding: 0px;
 
 .summary {
@@ -20,7 +21,7 @@ h3 {
     }
 }
 .hr {
-    border-top: 2px solid black;
+    border-top: 2px solid white;
     height: 0.5vh;
   }
 
@@ -38,8 +39,8 @@ h3 {
         margin: 0px;
 
         .double-hr {
-            border-top: 1px solid black;
-            border-bottom: 1px solid black;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
             height: 0.5vh;
         }
     }

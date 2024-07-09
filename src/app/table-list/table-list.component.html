@@ -1,0 +1,27 @@
+<div class="container">
+    <h4 style="color: white;">Our Tables</h4>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3">
+      <div *ngFor="let product of products; index as i" class="col mb-4">
+        <div class="card" style="width: 16rem;">
+          <!-- <img [src]="getImageUrl(product.dishPhoto)" class="card-img-top" alt="{{product.name}}"> -->
+          <div class="card-body">
+            <h5 class="card-title"> Table Number : {{product.tableNumber}}</h5>
+            <p class="card-text">Capacity : {{product.capacity}}</p>
+            <ng-template [ngIf]="product.isAvailable" [ngIfElse]="notAvailable">
+              <div >
+                <div   >
+
+                  <a  class="btn btn-primary" (click)="addToCart(product)">To book a table</a>
+
+                </div>              </div>
+            </ng-template>
+            <ng-template #notAvailable>
+              <p><b>Sorry, not available at the moment!</b></p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  

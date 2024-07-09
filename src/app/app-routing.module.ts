@@ -8,15 +8,29 @@ import { DetailsComponent } from './details/details.component';
 import { LoginComponent } from './login/login.component';
 import { MenuResturantComponent } from './menu-resturant/menu-resturant.component';
 import { DishComponent } from './dish/dish.component';
+import { ListOfDeliveryOrdersComponent } from './list-of-delivery-orders/list-of-delivery-orders.component';
+import { TableListComponent } from './table-list/table-list.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [{
   path:"",component: HomeComponent
 },{
   path:"about",component: AboutComponent
+},
+{
+  path:"tabless",component: TableListComponent
+}
+,
+{
+  path:"register",component: RegisterComponent
 }
 ,{
   path:"login",component: LoginComponent
-},{
+},
+{
+  path:"Delivery",component: ListOfDeliveryOrdersComponent
+},
+{
   path:"menu",component: MenuComponent
 }
 ,{

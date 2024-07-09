@@ -1,11 +1,12 @@
-<h3>Your order</h3>
+<h3 style="color: white;">Your order</h3>
 <div class="container mb-5">
     <div>
-        <div *ngFor="let item of cart" class="conatiner summary">
+        <div *ngFor="let item of orders" class="conatiner summary">
             <div class="row row-cols-2">
-                <div class="col col-2">{{item.productName}}</div>
-                <div class="col col-1">{{item.prize}}€</div>
-                <!-- <div role="button">Delete</div> -->
+                <div class="col col-2">{{item.dish.name}}</div>
+                <div class="col col-1">{{item.numberOfDishes}} Dish</div>
+                <div class="col col-1">{{item.price}}€</div>
+                <div class="col col-1" (click)="deleteOder(item)"><mat-icon > delete</mat-icon></div>
             </div>
             <hr>
         </div>
@@ -14,14 +15,7 @@
     <div class="hr"></div>
     <div class="container total">
         <div class="row row-cols-2">
-            <div>Subtotal:</div>
-            <div>€{{subtotal | number:'1.2-2'}}</div>
-            <div>VAT:</div>
-            <div>€{{vat | number:'1.2-2'}}</div>
-            <div>Discount:</div>
-            <div>€{{discount | number:'1.2-2'}}</div>
-            <div class="double-hr"></div>
-            <div class="double-hr"></div>
+          
             <div>Total:</div>
             <div>€{{total | number:'1.2-2'}}</div>
         </div>
@@ -32,15 +26,34 @@
     <p>Please fill up the info for the delivery:</p>
     <hr>
     <form [formGroup]="orderForm" (ngSubmit)="OnSubmit()">
-        Name
+        <div>
+            Name
+            <br>
+            <input type="text" formControlName="name">
+            <div *ngIf="orderForm.controls['name'].invalid && (orderForm.controls['name'].dirty || orderForm.controls['name'].touched)">
+                <small class="text-danger">Name is required</small>
+            </div>
+        </div>
         <br>
-        <input type="text" formControlName="name">
+        <div>
+            Phone Number
+            <br>
+            <input type="number" formControlName="phoneNumber">
+            <div *ngIf="orderForm.controls['phoneNumber'].invalid && (orderForm.controls['phoneNumber'].dirty || orderForm.controls['phoneNumber'].touched)">
+                <small class="text-danger">Phone number is required</small>
+            </div>
+        </div>
         <br>
-        Address
+        <div>
+            Address
+            <br>
+            <input type="text" formControlName="address">
+            <div *ngIf="orderForm.controls['address'].invalid && (orderForm.controls['address'].dirty || orderForm.controls['address'].touched)">
+                <small class="text-danger">Address is required</small>
+            </div>
+        </div>
         <br>
-        <input type="text" formControlName="address">
-        <br>
-        <input type="submit" class="btn btn-primary mt-3" value="Submit">
+        <input type="submit" class="btn btn-primary mt-3" value="Submit" [disabled]="orderForm.invalid">
     </form>
-
 </div>
+

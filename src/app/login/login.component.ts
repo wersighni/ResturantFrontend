@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,22 +12,32 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
   username: any;
   password: any;
+  registerForm!: FormGroup;
+
   showPassword: boolean = false; // Ajout d'une variable pour afficher ou masquer le mot de passe
   constructor(
     private authService: AuthService,
     private router: Router,
-   
+    private fb: FormBuilder,
 
-  ) {}
+
+  ) {
+    this.registerForm = this.fb.group({
+     
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+   
+    });
+  }
   onSubmit() {
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
+    console.log('Username:', this.registerForm.value.username);
+    console.log('Password:', this.registerForm.value.password);
     localStorage.clear()
     this.authService
-      .login(this.username, this.password)
+      .login(this.registerForm.value.username, this.registerForm.value.password)
       .then((success) => {
         if (success) {
-          this.router.navigate(['/']);
+          this.router.navigate(['/menu']);
 
         } 
       })

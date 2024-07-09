@@ -1,24 +1,32 @@
 <div class="login-form-container" style="margin-top: 5%;">
-    <form (ngSubmit)="onSubmit()">
-        <h3 style="color: #C9AB81; text-align: center;">LOG IN</h3>
+    <form [formGroup]="registerForm"  (ngSubmit)="onSubmit()">
+        <h3 style="color: #C9AB81; text-align: center; font-weight: bold;">SIGN IN</h3>
 
-      <div>
-        <input  placeholder="Username"type="text" id="username" name="username" [(ngModel)]="username" required>
-      </div>
-      <div>
-        <div class="password-input-container">
-          <input placeholder="Password" type="{{ showPassword ? 'text' : 'password' }}" id="password" name="password" [(ngModel)]="password" required>
-          <span class="password-toggle-icon" (click)="togglePasswordVisibility()">
-            <i class="fa fa-eye" *ngIf="showPassword"></i>
-            <i class="fa fa-eye-slash" *ngIf="!showPassword"></i>
-          </span>
+        <div class="form-group">
+          <input type="text" formControlName="username"placeholder="" required  >
+          <label>Username</label>
         </div>
+    
+       
+        
+     
+    <div>
+      <div class="password-input-container">
+          <div class="form-group">
+              <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="password" placeholder=""  required>
+              <label>Password</label>
+            </div>
+        <span class="password-toggle-icon" (click)="togglePasswordVisibility()">
+          <i class="fa fa-eye" *ngIf="showPassword"></i>
+          <i class="fa fa-eye-slash" *ngIf="!showPassword"></i>
+        </span>
       </div>
+    </div>
       
    
       <button type="submit" style="background-color: #C9AB81; 
 
-      ;">Login</button>
+      ;">SIGN IN</button>
     </form>
   
   </div>
@@ -35,5 +43,6 @@
   <a class="btn bgRed p-1 m-1" style="width: 3%;" href="#" role="button"><img src="assets/Images/google.png" width="75%"  class="m-1"></a>
   </div>
   <div style=" text-align: center;color: white;font-weight: bold;  margin-top: 2%;margin-bottom: 2%;">
-    <span>Don't have an account? SIGN UP</span>
+    <span >Don't have an account?    <a [routerLink]="['/register']" style="color: white; text-decoration: underline;">SIGN UP</a>
+    </span>
   </div>

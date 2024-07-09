@@ -1,0 +1,55 @@
+<div class="login-form-container" style="margin-top: 5%;">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h3 style="color: #C9AB81; text-align: center; font-weight: bold;">SIGN UP</h3>
+
+        <div class="form-group">
+            <input type="text" formControlName="firstname"placeholder="" required>
+            <label>First Name</label>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="lastname" placeholder="" required>
+            <label>Last Name</label>
+          </div>
+         
+          <div class="form-group">
+            <input type="email" formControlName="email" placeholder="" required>
+            <label>Email</label>
+          </div>
+       
+      <div>
+        <div class="password-input-container">
+            <div class="form-group">
+                <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="password" placeholder="" required>
+                <label>Password</label>
+              </div>
+          <span class="password-toggle-icon" (click)="togglePasswordVisibility()">
+            <i class="fa fa-eye" *ngIf="showPassword"></i>
+            <i class="fa fa-eye-slash" *ngIf="!showPassword"></i>
+          </span>
+        </div>
+      </div>
+      <div>
+        <div class="password-input-container">
+            <div class="form-group">
+                <input type="{{ showConfirmPassword ? 'text' : 'password' }}" formControlName="password" placeholder="" required>
+                <label>Confirm Password</label>
+              </div>
+          <span class="password-toggle-icon" (click)="togglePasswordConfirmVisibility()">
+            <i class="fa fa-eye" *ngIf="showConfirmPassword"></i>
+            <i class="fa fa-eye-slash" *ngIf="!showConfirmPassword"></i>
+          </span>
+        </div>
+      </div>
+   
+      <button type="submit" style="background-color: #C9AB81; margin-top: 2%
+
+      ;">SIGN UP</button>
+    </form>
+  
+  </div>
+
+
+Y
+  <div style=" text-align: center;color: white;font-weight: bold;  margin-top: 2%;margin-bottom: 2%;">
+    <span>Have an account? <a [routerLink]="['/login']" style="color: white; text-decoration: underline;">SIGN IN</a></span>
+  </div>

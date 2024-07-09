@@ -1,0 +1,33 @@
+@import url("https://use.typekit.net/vyd2wkn.css");
+
+h4 {
+        text-align: center;
+        margin-top: 3%;
+        font-family: "lindsey-signature", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 500%;
+    }
+
+.row {
+    .card{
+        margin: 5%;
+        width: 70%;
+        height:90% ;
+        box-shadow: 2px 2px 6px black;
+    }
+
+    img{
+        height: 30vh;
+        object-fit: cover;
+    }
+
+    .btn {
+        margin: 0% 4.5%;
+        background-color:rgb(51, 6, 6) ;
+        border: 0px;
+        color: white;
+    }
+
+    
+}

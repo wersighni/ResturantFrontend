@@ -11,8 +11,11 @@
             <ng-template [ngIf]="product.isAvailable" [ngIfElse]="notAvailable">
               <div style="display: flex;">
                 <a routerLink="/product/{{product.id}}" class="btn btn-primary">Details</a>
-                <a (click)="addToCart(product)" class="btn btn-primary">Add to cart</a>
-              </div>
+                <div   >
+
+                  <a  (click)="addToCart(product)" class="btn btn-primary">Add to cart</a>
+
+                </div>              </div>
             </ng-template>
             <ng-template #notAvailable>
               <p><b>Sorry, not available at the moment!</b></p>

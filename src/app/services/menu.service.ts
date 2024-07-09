@@ -6,6 +6,9 @@ import { environment } from '../environments/environment';
 import { Menu } from '../class/menu';
 import { Dish } from '../class/dish';
 import { Category } from '../class/category';
+import { Order } from '../class/Order';
+import { DeliveryOrder } from '../class/DeliveryOrder';
+import { Table } from '../class/Table';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +26,63 @@ export class MenuService {
     });
   }
 
- 
+  createRecommendation( recommendation:Order): Observable<Order> {
+    return this.http.post<Order>(this.apiUrl + '/menu/recommendation/',recommendation, { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error fetching menu items:', error);
+        return throwError('Something went wrong while fetching menu items. Please try again later.');
+      }))
+  }
+  createDeliveryOder( delivery:DeliveryOrder): Observable<DeliveryOrder> {
+    return this.http.post<DeliveryOrder>(this.apiUrl + '/menu/delivery/',delivery, { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error fetching menu items:', error);
+        return throwError('Something went wrong while fetching menu items. Please try again later.');
+      }))
+  }
+  createTable( table:Table): Observable<Table> {
+    return this.http.post<Table>(this.apiUrl + '/menu/tables/',table, { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error fetching menu items:', error);
+        return throwError('Something went wrong while fetching menu items. Please try again later.');
+      }))
+  }
+  getAllTables( ): Observable<Table[]> {
+    return this.http.get<Table[]>(this.apiUrl + '/menu/tables/').pipe(
+      catchError((error: any) => {
+        console.error('Error fetching menu items:', error);
+        return throwError('Something went wrong while fetching menu items. Please try again later.');
+      }))
+  }
+  deleteOrder(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.apiUrl}/menu/recommendation/${id}`, { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error deleting the dish:', error);
+        return throwError('Something went wrong while deleting the dish. Please try again later.');
+      })
+    );
+  }
+  getAllRecommendation(userId:string ): Observable<Order[]> {
+    return this.http.get<Order[]>(this.apiUrl + `/menu/recommendation/${userId}`, { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error fetching menu items:', error);
+        return throwError('Something went wrong while fetching menu items. Please try again later.');
+      }))
+  }
+  getAllDeliveryByUserId(userId:string ): Observable<DeliveryOrder[]> {
+    return this.http.get<DeliveryOrder[]>(this.apiUrl + `/menu/delivery/${userId}`, { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error fetching menu items:', error);
+        return throwError('Something went wrong while fetching menu items. Please try again later.');
+      }))
+  }
+  getAllDelivery( ): Observable<DeliveryOrder[]> {
+    return this.http.get<DeliveryOrder[]>(this.apiUrl + `/menu/delivery/`, { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error fetching menu items:', error);
+        return throwError('Something went wrong while fetching menu items. Please try again later.');
+      }))
+  }
   createDish( dish:Dish): Observable<Dish> {
     return this.http.post<Dish>(this.apiUrl + '/menu/dish/',dish, { headers: this.headers })
   }
