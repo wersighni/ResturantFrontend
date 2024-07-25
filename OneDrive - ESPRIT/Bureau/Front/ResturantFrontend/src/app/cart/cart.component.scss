@@ -1,0 +1,85 @@
+h3 {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.container {
+    justify-content: center;
+    border: 2px solid #B69E5C;
+    border-radius: 5px;
+    color: black;
+    padding: 0px;
+}
+
+.summary {
+    margin-top: 3%;
+    justify-content: center;
+}
+
+.row {
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+.total {
+    text-align: center;
+}
+
+.form-title {
+    text-align: center;
+    color: rgb(19, 19, 19);
+    margin-top: 2%;
+}
+
+.form-description {
+    text-align: center;
+    color: rgb(19, 19, 19);
+    margin-bottom: 2%;
+}
+
+.myForm {
+    padding: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Base style for the submit button */
+.btn-custom-submit {
+    background-color: #B69E5C; /* Change the background color */
+    border: none; /* Remove the border */
+    color: white; /* Set the text color */
+    padding: 10px 20px; /* Add some padding */
+    font-size: 16px; /* Set the font size */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change the cursor to a pointer */
+    transition: background-color 0.3s ease; /* Add a transition effect */
+}
+
+/* Hover effect for the submit button */
+.btn-custom-submit:hover {
+    background-color: #A4884C; /* Change the background color on hover */
+}
+
+/* Disabled state for the submit button */
+.btn-custom-submit:disabled {
+    background-color: #D3D3D3; /* Change the background color when disabled */
+    cursor: not-allowed; /* Change the cursor to not-allowed */
+}

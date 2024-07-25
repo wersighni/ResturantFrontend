@@ -1,0 +1,43 @@
+button {
+  padding: 10px;
+  margin-bottom: 2%;
+  background-color: #B69E5C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 18%;
+  cursor: pointer;
+}
+.button-container {
+  display: flex;
+  justify-content: left;
+  margin-top: 20px;
+}
+
+.custom-button {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  background-color: #B69E5C; /* Couleur de fond du bouton */
+  border: none;
+  color: white; /* Couleur du texte et de l'icône */
+  padding: 10px 20px; /* Espacement interne du bouton */
+  font-size: 16px;
+  border-radius: 5px; /* Bords arrondis */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #A4884C; /* Couleur de fond au survol */
+}
+
+.custom-icon {
+  margin-left: 10px; /* Espacement entre le texte et l'icône */
+  font-size: 24px; /* Taille de l'icône */
+}
+
+
+
+
+

@@ -1,0 +1,26 @@
+<div ><h3 style="color: black; text-align: center; font-weight: bold;">Your Dishs</h3>
+<div class="container mb-5">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Dish Name</th>
+        <th>Number of Dishes</th>
+        <th>Price (€)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of orders">
+        <td>{{ item.dish.name }}</td>
+        <td>{{ item.numberOfDishes }} Dish</td>
+        <td>{{ item.price }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="total mt-3">
+    <div class="row">
+      <div class="col">Total:</div>
+      <div class="col text-end">€{{ delivery.total | number: '1.2-2' }}</div>
+    </div>
+  </div>
+</div>
+</div>

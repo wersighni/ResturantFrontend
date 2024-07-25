@@ -1,0 +1,30 @@
+<div class="container">
+    <h4 style="color: rgb(26, 25, 25);margin-top: 60px;">Our Menu</h4>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3">
+      <div *ngFor="let product of products; index as i" class="col mb-4">
+        <div class="card" style="width: 16rem;">
+          <img [src]="getImageUrl(product.dishPhoto)" class="card-img-top" alt="{{product.name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <ng-template [ngIf]="product.isAvailable" [ngIfElse]="notAvailable">
+              <div style="display: flex;">
+                <a routerLink="/product/{{product.id}}" class="btn btn-primary">Details</a>
+                <div>
+
+                  <a  (click)="addToCart(product)" class="btn btn-primary">Add to cart</a>
+
+                </div>              </div>
+            </ng-template>
+            <ng-template #notAvailable>
+              <p><b>Sorry, not available at the moment!</b></p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 40px;margin-bottom: 40px;">
+      <h4 style="color: white;margin-bottom: 40px;">Scan the QR code to view the menu</h4>
+      <qrcode [qrdata]="qrCodeData" [width]="286" [errorCorrectionLevel]="'M'"></qrcode>
+    </div>
+  </div>
+  

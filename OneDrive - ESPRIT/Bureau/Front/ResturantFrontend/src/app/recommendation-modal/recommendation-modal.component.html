@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <h5 class="modal-title"style="font-size:20px">Add Recommendation</h5>
+  <button type="button" class="close" (click)="closeModal()">
+    <span>&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="dish">Dish</label>
+      <input type="text" id="dish" class="form-control" [(ngModel)]="dish.name" name="dish" required readonly>
+    </div>
+    <div class="form-group">
+      <label for="numberOfDishes">Number of Dishes</label>
+      <input type="number" id="numberOfDishes" class="form-control" [(ngModel)]="orders.numberOfDishes" name="numberOfDishes" required (input)="updatePrice()">
+    </div>
+    <div class="form-group">
+      <label for="price">Total</label>
+      <input type="number" id="price" class="form-control" [(ngModel)]="orders.price" name="price" required readonly>
+    </div>
+    <div style="display: flex;justify-content: space-between;">
+
+      <button type="reset" class="btn btn-primary" (click)="closeModal()">Cancel</button>
+
+    <button type="submit" class="btn btn-primary">Recommendated</button>
+    </div>
+
+  </form>
+</div>

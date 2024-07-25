@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg bgBeige custom-navbar-height">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-3" href="#">
+      <img src="assets/Images/Logo.png" style="height: 60px;" alt="Logo" class="d-inline-block align-text-top">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link fs-5 mt-1 ms-3 nav-custom" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5 mt-1 ms-3 nav-custom" routerLink="/menu">Menu</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated && isAdmin">
+          <a class="nav-link fs-5 mt-1 ms-3 nav-custom" routerLink="/tables">Table Management</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated && isAdmin">
+          <a class="nav-link fs-5 mt-1 ms-3 nav-custom" routerLink="/plat">Dish Management</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a class="nav-link fs-5 mt-1 ms-3 nav-custom" routerLink="/Delivery">Delivery Orders</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated">
+          <a class="nav-link fs-5 mt-1 ms-3 nav-custom" routerLink="/about">About</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated">
+          <a class="nav-link fs-5 mt-1 ms-3 nav-custom" routerLink="/login">Log in</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <mat-icon class="shopping-cart-icon" *ngIf="isAuthenticated" matBadgeSize="medium" matBadgePosition="before" routerLink="/cart">shopping_cart</mat-icon>
+        <div class="user-menu ms-3" [matMenuTriggerFor]="menu" *ngIf="isAuthenticated">
+          <span class="username">{{ username | uppercase }}</span>
+          <mat-icon>arrow_drop_down</mat-icon>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/profile">Profile</button>
+            <button mat-menu-item (click)="logout()">Log out</button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

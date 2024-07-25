@@ -1,0 +1,93 @@
+.custom-navbar-height {
+    height: 80px;
+    border-bottom: 2px solid black; /* Black line at the bottom */
+    box-shadow: 0 4px 2px -2px gray; /* Shadow for the navbar */
+}
+
+.navbar-brand img {
+    height: 40px; /* Adjust as needed to fit within the new navbar height */
+}
+
+.bgBeige {
+    background-color: rgb(255, 255, 255);
+}
+
+.beige {
+    color: rgb(251, 202, 142);
+}
+
+.red {
+    color: #191D25;
+    font-size: 12px;
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
+.bgRed {
+    background-color: rgb(51, 6, 6);
+}
+
+.home {
+    margin-left:50px;
+}
+
+.shopping-cart {
+    position: relative;
+    display: inline-block;
+}
+
+.recommendation-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
+    white-space: nowrap; /* Prevent text wrapping within items */
+    width: 100%;
+}
+
+.nav-item {
+    margin-right: 20px; /* Adjust as needed for spacing between nav items */
+    margin-left: 20px; /* Adjust as needed for spacing between nav items */
+}
+
+.nav-custom {
+    color: #333; /* Change to your desired color */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-custom:hover {
+    color: #000000; /* Change to your desired hover color */
+    background-color: #B69E5C; /* Optional: Change background color on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+.navbar-collapse {
+    justify-content: space-between; /* Distribute items evenly */
+}
+
+.shopping-cart-icon {
+    transition: background-color 0.3s ease;
+    font-size: 28px; /* Adjust the font size to change the icon size */
+    width: 100%;
+    height:100%;
+    margin-right:100px;
+}
+
+.user-menu {
+    margin-left: 10px; /* Adjust this as needed */
+    margin-top: 10px; /* Add margin top for the user menu */
+    margin-right: 100px;
+}
+
+.username {
+    font-weight: bold;
+}

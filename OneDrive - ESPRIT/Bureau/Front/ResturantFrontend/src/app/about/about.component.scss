@@ -1,0 +1,29 @@
+@import url("https://use.typekit.net/vyd2wkn.css");
+
+.container {
+    width: 100vw;
+
+    .row {
+        align-items: center;
+        text-align: center;
+        justify-items: center;
+        gap: 5%;
+        margin: 0% 1%;
+        height: 65vh;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+            img { 
+                width: 48vw; 
+                height: 450px;
+                margin-left: -150px;
+            }
+    
+        h4 {
+            font-family: "eixample-dip", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 200%
+        };
+    }
+}

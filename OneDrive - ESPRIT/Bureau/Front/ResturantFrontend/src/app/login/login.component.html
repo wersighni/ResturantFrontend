@@ -1,0 +1,44 @@
+<div class="login-form-container" style="margin-top: 5%;">
+    <form [formGroup]="registerForm"  (ngSubmit)="onSubmit()">
+        <h3 style="color: #C9AB81; text-align: center; font-weight: bold;">SIGN IN</h3>
+
+        <div class="form-group">
+          <input type="text" formControlName="username"placeholder="" required  >
+          <label>Username</label>
+        </div>
+    
+       
+        
+     
+    <div>
+      <div class="password-input-container">
+          <div class="form-group">
+              <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="password" placeholder=""  required>
+              <label>Password</label>
+            </div>
+        <span class="password-toggle-icon" (click)="togglePasswordVisibility()">
+          <i class="fa fa-eye" *ngIf="showPassword"></i>
+          <i class="fa fa-eye-slash" *ngIf="!showPassword"></i>
+        </span>
+      </div>
+    </div>
+      
+   
+      <button type="submit" style="background-color: #C9AB81; 
+
+      ;">SIGN IN</button>
+    </form>
+  
+  </div>
+  <div style="text-align: center;  margin-top: 2%;margin-bottom: 2%;color: #2d3031; ">
+    Or connect with
+
+  </div>
+  <div style="text-align: center; ">
+  <a class="btn p-1 m-1" style="width: 3%;background-color: #C9AB81" href="#" role="button"><img src="assets/Images/Facebook.png" width="40%" class="m-1"></a>
+  <a class="btn p-1 m-1" style="width: 3%;background-color: #C9AB81;" href="#" role="button"><img src="assets/Images/google.png" width="75%"  class="m-1"></a>
+  </div>
+  <div style=" text-align: center;color: #2d3031;font-weight: bold;  margin-top: 2%;margin-bottom: 2%;">
+    <span >Don't have an account?    <a [routerLink]="['/register']" style="color: #2d3031; text-decoration: underline;">SIGN UP</a>
+    </span>
+  </div>
