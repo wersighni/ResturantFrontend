@@ -1,11 +1,11 @@
-<div class="container" style="color: white;">
+<div class="container" style="color: black;">
     <div class="row">
       <img [src]="url" alt="Dish Image" />
       <div>
         <h4>Dish name: {{ dish?.name }}</h4>
         <p>Dish description: {{ dish?.description }}</p>
         <p>Dish category: {{ dish?.category.name }}</p>
-        <p>Dish price: {{ dish?.price }} $</p>
+        <p>Dish price: {{ dish?.price }}</p>
 
         <a (click)="addToCart()" class="btn btn-primary">Add to cart</a>
       </div>

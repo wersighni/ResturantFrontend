@@ -1,11 +1,9 @@
 .login-form-container {
-  margin-top: 50%;
-  margin-bottom: 50%;
+  margin-top: 5%;
   width: 40%;
-  height: 450%; /* Ajout d'une hauteur fixe de 500 pixels */
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #C9AB81;
+  border: 3px solid #C9AB81;
   border-radius: 5px;
 }
 
@@ -16,19 +14,16 @@
 
 .login-form-container label {
   margin-bottom: 5px;
-  font-weight: bold; /* Ajouter la propriété font-weight ici également */
+  font-weight: bold;
 }
 
 .login-form-container input {
   padding: 8px;
   margin-bottom: 15px;
-  background-color: #2d3031;
-  border: 1px solid #C9AB81;
+  background-color: #FFF;
+  border: 2px solid #C9AB81;
   border-radius: 5px;
-  margin-bottom: 3%;
-  margin-top: 1%;
-
-  width: 100%; /* Set width to 100% */
+  width: 100%;
 }
 
 .password-input-container {
@@ -50,7 +45,7 @@
 
 .links a {
   margin-right: 10px;
-  color: white;
+  color: #2d3031;
   text-decoration: none;
 }
 
@@ -61,11 +56,13 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 button:hover {
   background-color: #0056b3;
 }
+
 .form-group {
   position: relative;
   margin-bottom: 15px;

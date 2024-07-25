@@ -1,11 +1,11 @@
 .login-form-container {
   margin-top: 50%;
   margin-bottom: 50%;
-  width: 40%;
-  height: 450%; /* Ajout d'une hauteur fixe de 500 pixels */
+  width: 100%;
+  max-width: 400px; /* Largeur maximale pour le formulaire */
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #C9AB81;
+  border: 3px solid #C9AB81;
   border-radius: 5px;
 }
 
@@ -22,8 +22,8 @@
 .login-form-container input {
   padding: 8px;
   margin-bottom: 15px;
-  background-color: #2d3031;
-  border: 1px solid #C9AB81;
+  background-color: #FFF;
+  border: 2px solid #C9AB81;
   border-radius: 5px;
   margin-bottom: 3%;
   margin-top: 1%;

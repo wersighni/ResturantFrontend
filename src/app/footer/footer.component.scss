@@ -1,14 +1,77 @@
-.bgBeige {
-    background-color: rgb(251, 202, 142);
-}
-.beige {
+
+  
+  footer .card-header,
+  footer .card-body,
+  footer .card-footer {
+    padding: 1.5rem;
+  }
+  
+  footer h5 {
+    margin-bottom: 1rem;
+    color: #B69E5C;
+    font-weight: bold;
+  }
+  
+  footer p,
+  footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #ffff;
+    margin-bottom: 10px;
+  }
+  
+  footer .footer-link {
+    color: #ffff;
+    text-decoration: none;
+  }
+  
+  footer .footer-link:hover {
+    color: #B69E5C;
+  }
+  
+  footer .input-group .form-control {
+    border-radius: 0;
+  }
+  
+  footer .input-group .btn {
+    background-color: #B69E5C;
+    border: none;
+    
+  }
+  
+  footer .input-group .btn:hover {
+    background-color: #FEFEFE;
+  }
+  
+  footer .social-icons a {
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+  
+  footer .social-icons img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Background and Text Colors */
+  .bgBeige {
+    background-color: rgb(27, 26, 26);
+  }
+  
+  .beige {
     color: rgb(251, 202, 142);
-}
-
-.red{
+  }
+  
+  .red {
     color: rgb(51, 6, 6);
-}
-
-.bgRed {
-    background-color:rgb(51, 6, 6);
-}
+  }
+  
+  .bgRed {
+    background-color: #B69E5C;
+  }
+  
+  footer .red {
+    color: rgb(51, 6, 6);
+  }
+  

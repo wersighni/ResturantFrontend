@@ -7,6 +7,17 @@ h4 {
         font-weight: 500;
         font-style: normal;
         font-size: 500%;
+        margin-bottom: 50px;
+    }
+    h5 {
+        text-align: left;
+        font-family: "lindsey-signature", sans-serif;
+        font-weight: bold;
+        font-style: normal;
+        font-size: 200%;
+        margin-bottom: 20px;
+        margin-top: 5px;
+        margin-left: 10px;
     }
 
 .row {
@@ -15,6 +26,7 @@ h4 {
         width: 70%;
         height:90% ;
         box-shadow: 2px 2px 6px black;
+        
     }
 
     img{
@@ -24,10 +36,11 @@ h4 {
 
     .btn {
         margin: 0% 4.5%;
-        background-color:rgb(51, 6, 6) ;
+        background-color:#B69E5C ;
         border: 0px;
         color: white;
+        font-family: "eixample-dip", sans-serif;
+
     }
 
-    
 }

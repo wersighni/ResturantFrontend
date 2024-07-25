@@ -1,5 +1,5 @@
 .container {
-    
+    margin-right: 450px;
     .row {
         text-align: center;
         justify-content: center;
@@ -13,13 +13,16 @@
         // height: 50vh;
         width: 30vw;
         padding: 2% 0%;
+        margin-right: 40px;
+        
     }
 
     .btn {
-        margin: 5% 0%;
-        background-color: rgb(51, 6, 6);
+        margin: 0% 4.5%;
+        background-color:#B69E5C ;
         border: 0px;
-        padding: 2% 5%;
         color: white;
+        font-family: "eixample-dip", sans-serif;
+
     }
 }

@@ -1,10 +1,10 @@
 .login-form-container {
-    color: white;
-    background-color: #2d3031;
+    color: #333;
+    background-color: #FFF;
     margin-bottom: 50%;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #C9AB81;
+    border: 3px solid #C9AB81;
     border-radius: 5px;
   }
   
@@ -20,8 +20,8 @@
   
   .login-form-container input ,textarea,select{
     padding: 8px;
-    background-color: #2d3031;
-    border: 1px solid #C9AB81;
+    background-color: #FFF;
+    border: 2px solid #C9AB81;
     border-radius: 5px;
     margin-bottom: 2%;
     // margin-top: 5%;

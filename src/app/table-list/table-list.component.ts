@@ -54,10 +54,11 @@ export class TableListComponent {
 
   addToCart(table: Table) {
     if(this.isAuthenticated)
-      { console.log(table)
+      { 
         const tableBook=new BookTable()
         tableBook.tableR=table
         tableBook.userId=localStorage.getItem("userId")||''
+        console.log(tableBook)
       }
       else{
         this.router.navigate(['/login']);
