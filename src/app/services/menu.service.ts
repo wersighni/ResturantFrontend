@@ -9,6 +9,7 @@ import { Category } from '../class/category';
 import { Order } from '../class/Order';
 import { DeliveryOrder } from '../class/DeliveryOrder';
 import { Table } from '../class/Table';
+import { BookTable } from '../class/BookTable';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,35 @@ export class MenuService {
         console.error('Error fetching menu items:', error);
         return throwError('Something went wrong while fetching menu items. Please try again later.');
       }))
+  }
+  BookTable( bookTable:BookTable): Observable<Table> {
+    return this.http.post<Table>(this.apiUrl + '/menu/tables/bookTable',bookTable, { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error fetching menu items:', error);
+        return throwError('Something went wrong while fetching menu items. Please try again later.');
+      }))
+  }
+  getAllReservationTablesAdmin( ): Observable<BookTable[]> {
+    return this.http.get<BookTable[]>(this.apiUrl + '/menu/tables/bookTable', { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error fetching menu items:', error);
+        return throwError('Something went wrong while fetching menu items. Please try again later.');
+      }))
+  }
+    getAllReservationTablesClients(userId:string ): Observable<BookTable[]> {
+    return this.http.get<BookTable[]>(this.apiUrl + `/menu/tables/bookTable/${userId}`, { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error fetching menu items:', error);
+        return throwError('Something went wrong while fetching menu items. Please try again later.');
+      }))
+  }
+  deleteTable(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.apiUrl}/menu/tables/${id}`, { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error deleting the dish:', error);
+        return throwError('Something went wrong while deleting the dish. Please try again later.');
+      })
+    );
   }
   getAllTables( ): Observable<Table[]> {
     return this.http.get<Table[]>(this.apiUrl + '/menu/tables/').pipe(

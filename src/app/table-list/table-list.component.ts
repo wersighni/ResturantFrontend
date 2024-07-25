@@ -58,7 +58,21 @@ export class TableListComponent {
         const tableBook=new BookTable()
         tableBook.tableR=table
         tableBook.userId=localStorage.getItem("userId")||''
+        tableBook.clientName=localStorage.getItem("fullname")||''
         console.log(tableBook)
+        this.menuService.BookTable(tableBook).subscribe(data=>
+          {
+            console.log(data)
+            if(data){
+              Swal.fire({
+                text: 'Table reservation was done successfully !',
+                icon: 'success',
+                confirmButtonText: 'OK'
+              });  
+              this.getTables()
+            }
+          }
+        )
       }
       else{
         this.router.navigate(['/login']);

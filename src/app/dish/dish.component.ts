@@ -54,7 +54,7 @@ export class DishComponent {
     dialogRef.afterClosed().subscribe(dish => {
       console.log(dish)
     
-          this.getDish()
+          this. getDish()
 
 
 

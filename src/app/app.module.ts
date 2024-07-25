@@ -33,6 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { TableReservationsComponent } from './table-reservations/table-reservations.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { MatIconModule } from '@angular/material/icon';
     AddTableComponent,
     TableListComponent,
     DeShowDishComponent,
-    RegisterComponent
+    RegisterComponent,
+    TableReservationsComponent
   ],
   imports: [
     MatBadgeModule,

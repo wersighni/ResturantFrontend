@@ -67,11 +67,11 @@ closeModal(){
     this.dish.dishPhoto=this.docId
     this.dish.category=this.selectedCategory
     console.log(this.dish)
-    this.dialogRef.close(this.dish)
     this.menuService.createDish(this.dish).subscribe(data=>
 
       {
         Swal.fire(' The dish was successfully added!', '', 'success');
+        this.dialogRef.close(this.dish)
 
 
       }

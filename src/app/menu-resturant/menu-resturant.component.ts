@@ -4,6 +4,7 @@ import { Menu } from '../class/menu';
 import { AddTableComponent } from '../add-table/add-table.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Table } from '../class/Table';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-menu-resturant',
@@ -47,6 +48,7 @@ export class MenuResturantComponent {
           if(data)
             {
               this.getAllTables()
+              Swal.fire(' The table was successfully added!', '', 'success');
 
             }
         }
@@ -55,7 +57,12 @@ export class MenuResturantComponent {
 
   }
   deleteElement(element: Menu) {
-    // Implement delete functionality
+    this.menuService.deleteTable(element.id).subscribe(data=>
+      {
+        Swal.fire(' The table was successfully deleted!', '', 'success');
+        this.getAllTables()
+      }
+    )
     console.log("Deleting element:", element);
     // You can call a service method to delete the menu item
   }

@@ -48,7 +48,7 @@ export class LoginComponent {
         if (error.status === 401) {
           Swal.fire({
             title: 'Erreur!',
-            text: 'Invalid Username or Password',
+            text: 'Invalid Email or Password',
             icon: 'error',
             confirmButtonText: 'OK'
           }); 

@@ -11,6 +11,8 @@ import { DishComponent } from './dish/dish.component';
 import { ListOfDeliveryOrdersComponent } from './list-of-delivery-orders/list-of-delivery-orders.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './services/AuthGuard';
+import { TableReservationsComponent } from './table-reservations/table-reservations.component';
 
 const routes: Routes = [{
   path:"",component: HomeComponent
@@ -18,7 +20,10 @@ const routes: Routes = [{
   path:"about",component: AboutComponent
 },
 {
-  path:"tabless",component: TableListComponent
+  path:"tabless",component: TableListComponent,canActivate: [AuthGuard]
+},
+{
+  path:"tablesReservations",component: TableReservationsComponent,canActivate: [AuthGuard]
 }
 ,
 {
@@ -28,18 +33,18 @@ const routes: Routes = [{
   path:"login",component: LoginComponent
 },
 {
-  path:"Delivery",component: ListOfDeliveryOrdersComponent
+  path:"Delivery",component: ListOfDeliveryOrdersComponent,canActivate: [AuthGuard]
 },
 {
   path:"menu",component: MenuComponent
 }
 ,{
-  path:"tables",component: MenuResturantComponent
+  path:"tables",component: MenuResturantComponent,canActivate: [AuthGuard]
 },
 {
-  path:"plat",component: DishComponent
+  path:"plat",component: DishComponent,canActivate: [AuthGuard]
 },{
-  path:"cart",component: CartComponent
+  path:"cart",component: CartComponent,canActivate: [AuthGuard]
 },{
   path:"product/:id",component: DetailsComponent
 }];

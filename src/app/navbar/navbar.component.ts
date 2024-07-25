@@ -33,9 +33,11 @@ export class NavbarComponent {
     console.log("isAdmin", this.isAdmin)
     console.log("isClient",this.isClient)
 
-  
+   // S'abonner aux changements d'état d'authentification
+   this.authService.isLoggedIn.subscribe((authStatus) => {
+    this.isAuthenticated = authStatus;
+  });
 
-    this.isAuthenticated = this.authService.isAuthenticatedUser();  
     this.menuService.getAllRecommendation(this.userId).subscribe(data=>
       {
         console.log(data)
