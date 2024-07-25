@@ -10,6 +10,7 @@ import { Order } from '../class/Order';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Table } from '../class/Table';
+import { BookTable } from '../class/BookTable';
 @Component({
   selector: 'app-table-list',
   templateUrl: './table-list.component.html',
@@ -53,8 +54,10 @@ export class TableListComponent {
 
   addToCart(table: Table) {
     if(this.isAuthenticated)
-      {
-        
+      { console.log(table)
+        const tableBook=new BookTable()
+        tableBook.tableR=table
+        tableBook.userId=localStorage.getItem("userId")||''
       }
       else{
         this.router.navigate(['/login']);

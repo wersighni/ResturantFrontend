@@ -9,6 +9,7 @@ import { Category } from '../class/category';
 import { Order } from '../class/Order';
 import { DeliveryOrder } from '../class/DeliveryOrder';
 import { Table } from '../class/Table';
+import { BookTable } from '../class/BookTable';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,13 @@ export class MenuService {
   }
   createTable( table:Table): Observable<Table> {
     return this.http.post<Table>(this.apiUrl + '/menu/tables/',table, { headers: this.headers }).pipe(
+      catchError((error: any) => {
+        console.error('Error fetching menu items:', error);
+        return throwError('Something went wrong while fetching menu items. Please try again later.');
+      }))
+  }
+  BockTable( bookTable:BookTable): Observable<Table> {
+    return this.http.post<Table>(this.apiUrl + '/menu/tables/bookTable',bookTable, { headers: this.headers }).pipe(
       catchError((error: any) => {
         console.error('Error fetching menu items:', error);
         return throwError('Something went wrong while fetching menu items. Please try again later.');
