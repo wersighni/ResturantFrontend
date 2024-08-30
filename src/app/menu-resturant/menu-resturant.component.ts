@@ -38,9 +38,9 @@ export class MenuResturantComponent {
     });
   
     // S'exécute après la fermeture du modal
-    dialogRef.afterClosed().subscribe(updatedTable => {
+    dialogRef.afterClosed().subscribe((updatedTable:Table) => {
       if (updatedTable) {
-        // Appeler le service pour mettre à jour la table
+        updatedTable.id=element.id
         this.menuService.createTable(updatedTable).subscribe(data => {
           if (data) {
             // Rafraîchir la liste des tables
