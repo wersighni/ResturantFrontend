@@ -10,41 +10,33 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  username: any;
-  password: any;
   registerForm!: FormGroup;
+  showPassword: boolean = false;
 
-  showPassword: boolean = false; // Ajout d'une variable pour afficher ou masquer le mot de passe
   constructor(
     private authService: AuthService,
     private router: Router,
-    private fb: FormBuilder,
-
-
+    private fb: FormBuilder
   ) {
     this.registerForm = this.fb.group({
-     
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-   
+      username: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
+
   onSubmit() {
-    console.log('Username:', this.registerForm.value.username);
-    console.log('Password:', this.registerForm.value.password);
-    localStorage.clear()
+    if (this.registerForm.valid) {
+    
+
     this.authService
       .login(this.registerForm.value.username, this.registerForm.value.password)
       .then((success) => {
         if (success) {
           this.router.navigate(['/menu']);
-
-        } 
+        }
       })
       .catch((error) => {
-        
         console.error('Login error:', error);
-      
         if (error.status === 401) {
           Swal.fire({
             title: 'Erreur!',
@@ -52,24 +44,18 @@ export class LoginComponent {
             icon: 'error',
             confirmButtonText: 'OK'
           }); 
-        } else  if (error.status === 423) {
+        } else if (error.status === 423) {
           Swal.fire({
             title: 'Erreur!',
             text: 'Your account has been temporarily blocked. Please try again later.',
             icon: 'error',
             confirmButtonText: 'OK'
           }); 
-        }  {
-          // Gérez d'autres types d'erreurs si nécessaire
         }
       });
-      
-  }
-
-  
+  }}
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
 }
-

@@ -62,9 +62,21 @@ export class DishComponent {
     })
     console.log("Editing element:");
   }
-  editElement(element: Menu) {
-    console.log("Editing element:", element);
+  editElement(dish: Dish) {
+    console.log("Editing dish:", dish);
+    const dialogRef = this.dialog.open(AddDishComponent, {
+      width: '40%',
+      data: { element: dish }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log("Dish after editing:", result);
+        this.getDish();  // Rafraîchit la liste des plats après l'édition
+      }
+    });
   }
+  
   deleteElement(element: Dish) {
     console.log("Deleting element:", element);
     this.menuService.deleteDish(element.id).subscribe

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GedService } from '../services/ged.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Dish } from '../class/dish';
 import { Menu } from '../class/menu';
 import { MenuService } from '../services/menu.service';
@@ -21,7 +21,10 @@ export class AddDishComponent {
 
   constructor(private formBuilder: FormBuilder,
     private menuService:MenuService,
-    private gedService: GedService, public dialogRef: MatDialogRef<AddDishComponent>) {
+    private gedService: GedService, 
+    @Inject(MAT_DIALOG_DATA) public data: any,
+
+    public dialogRef: MatDialogRef<AddDishComponent>) {
     this.dishForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
@@ -35,14 +38,29 @@ dish:Dish=new Dish
 docId:any
 menu: Menu[]=[]
 categories: Category[]=[]
+element: Dish=new Dish()
 ngOnInit(): void {
-//   this.menuService.getMenuItems().subscribe(data=>
-// this.menu=data
-//   )
-  this.menuService.getAllCategories().subscribe(data=>
+this.menuService.getAllCategories().subscribe(data=>
 
-this.categories=data  
-)
+  this.categories=data  
+  )
+  if (this.data && this.data.element) {
+    this.element = this.data.element;
+
+    // Mise à jour des valeurs du formulaire
+    this.dishForm.patchValue({
+      name: this.element.name,
+      description: this.element.description,
+      price: this.element.price,
+      category: this.element.category ? this.element.category.id : '',
+      photo: this.element.dishPhoto
+    });
+  } else {
+    console.error('No element data provided');
+  }
+
+
+
 
 }
 selectedCategory:any
@@ -67,6 +85,19 @@ closeModal(){
     this.dish.dishPhoto=this.docId
     this.dish.category=this.selectedCategory
     console.log(this.dish)
+   if(this.data && this.data.element){
+      this.dish.id=this.element.id
+
+    this.menuService.createDish(this.dish).subscribe(data=>
+
+      {
+        Swal.fire(' The dish was successfully updated!', '', 'success');
+        this.dialogRef.close(this.dish)
+
+
+      }
+    )
+   }else{
     this.menuService.createDish(this.dish).subscribe(data=>
 
       {
@@ -76,6 +107,7 @@ closeModal(){
 
       }
     )
+   }
 
     } else {
       this.markFormGroupTouched(this.dishForm);

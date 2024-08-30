@@ -26,6 +26,7 @@ export class NavbarComponent {
   ngOnInit(): void {
     this.userId = localStorage.getItem("userId");
     this.username = localStorage.getItem("fullname");
+    console.log(this.username)
     const roleString = localStorage.getItem("roles") || "";
     const roles = roleString ? roleString.split(',') : [];
     this.isAdmin = roles.includes("ADMIN");

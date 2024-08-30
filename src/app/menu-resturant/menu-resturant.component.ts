@@ -28,11 +28,31 @@ export class MenuResturantComponent {
       this.dataSource = data; // Assign fetched data to the dataSource
     });
   }
-  editElement(element: Menu) {
-    // Implement edit functionality
-    console.log("Editing element:", element);
-    // You can navigate to a form to edit the menu item
+  editElement(element: Table) {
+    // Ouvre le modal pour éditer la table
+    const dialogRef = this.dialog.open(AddTableComponent, {
+      width: '50%',
+      data: {
+        element: element  // Passer l'élément à éditer au modal
+      },
+    });
+  
+    // S'exécute après la fermeture du modal
+    dialogRef.afterClosed().subscribe(updatedTable => {
+      if (updatedTable) {
+        // Appeler le service pour mettre à jour la table
+        this.menuService.createTable(updatedTable).subscribe(data => {
+          if (data) {
+            // Rafraîchir la liste des tables
+            this.getAllTables();
+            // Afficher un message de succès
+            Swal.fire('The table was successfully updated!', '', 'success');
+          }
+        });
+      }
+    });
   }
+  
   createtable(){
     const dialogRef = this.dialog.open(AddTableComponent, {
       width: '50%',
